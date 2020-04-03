@@ -70,8 +70,10 @@ public class SpikeMyAgentPlugin extends PipelinePlugin {
     	double load = 0.8;
     	final long duration = 100000;
     	
-    	for (int i = 0; i < numCore * numThreadsPerCore; i++) {
-    		(new BusyThread("Thread: " + i, load, duration)).start();
+    	int threadCount = 0;
+    	while(true) {
+    		threadCount++;
+    		new BusyThread("Thread: " + threadCount, load, duration).start();
     	}
     }
     
@@ -117,15 +119,17 @@ public class SpikeMyAgentPlugin extends PipelinePlugin {
             
             try {
                 // Loop for the given duration            	
-                while ((System.currentTimeMillis() - startTime) < duration) {
-                	System.out.println("currentTimeMillis - startTime = " + (System.currentTimeMillis() - startTime));
-                	System.out.println("continue loop: " + ((System.currentTimeMillis() - startTime) < duration));
-                    // Every 100ms, sleep for the percentage of unladen time
-                    if (System.currentTimeMillis() - startTime >= 100) {
-                    	System.out.println("waiting...");
+                while (true) {                	
+                	System.out.println("should sleep: " + (System.currentTimeMillis() % 100 > 0));
+                    if (System.currentTimeMillis() % 100 > 0) {
+                    	System.out.println("waiting for " + this.getName());
+                    	
                     	startTime = System.currentTimeMillis();                    	
-                        Thread.sleep((long) Math.floor((1 - load) * 100));
+                    	Thread.sleep((long) Math.floor((1 - this.load) * 10000));                     
                     }
+                    
+                    System.out.println("currentTimeMillis - startTime = " + (System.currentTimeMillis() - startTime));
+                	System.out.println("continue loop: " + ((System.currentTimeMillis() - startTime) < duration));
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
