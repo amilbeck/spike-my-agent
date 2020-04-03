@@ -68,10 +68,12 @@ public class SpikeMyAgentPlugin extends PipelinePlugin {
     	System.out.println("maxThreads:" + (numCore * numThreadsPerCore));
     	
     	double load = 0.8;
-    	final long duration = 100000;
+    	final long duration = 300000;
     	
+    	// loop for 5 minutes
+    	long startTime = System.currentTimeMillis();
     	int threadCount = 0;
-    	while(true) {
+    	while(System.currentTimeMillis() - startTime < duration) {
     		threadCount++;
     		new BusyThread("Thread: " + threadCount, load, duration).start();
     	}
@@ -115,21 +117,17 @@ public class SpikeMyAgentPlugin extends PipelinePlugin {
         @Override
         public void run() {
             long startTime = System.currentTimeMillis();
-            System.out.println("startTime: " + startTime);
             
             try {
                 // Loop for the given duration            	
-                while (true) {                	
-                	System.out.println("should sleep: " + (System.currentTimeMillis() % 100 > 0));
+                while (System.currentTimeMillis() - startTime < this.duration) {   
+                	// every 100ms, sleep
                     if (System.currentTimeMillis() % 100 > 0) {
                     	System.out.println("waiting for " + this.getName());
                     	
                     	startTime = System.currentTimeMillis();                    	
                     	Thread.sleep((long) Math.floor((1 - this.load) * 10000));                     
                     }
-                    
-                    System.out.println("currentTimeMillis - startTime = " + (System.currentTimeMillis() - startTime));
-                	System.out.println("continue loop: " + ((System.currentTimeMillis() - startTime) < duration));
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
