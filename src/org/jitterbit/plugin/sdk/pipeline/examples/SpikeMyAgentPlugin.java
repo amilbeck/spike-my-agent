@@ -113,14 +113,16 @@ public class SpikeMyAgentPlugin extends PipelinePlugin {
             long startTime = System.currentTimeMillis();
             
             try {
-                // Loop for the given duration            	
-                while (System.currentTimeMillis() - startTime < this.duration) {   
+                // Loop for the given duration       
+            	boolean done = false;
+                while (!done) {   
                 	// every 100ms, sleep
                     if (System.currentTimeMillis() % 100 > 0) {
-                    	System.out.println("waiting for " + this.getName());
+                    	System.out.println("waiting for " + this.getName());                    	
+                    	          	
+                    	Thread.sleep((long) Math.floor((1 - this.load) * 100));
                     	
-                    	startTime = System.currentTimeMillis();                    	
-                    	Thread.sleep((long) Math.floor((1 - this.load) * 10000));                     
+                    	done = System.currentTimeMillis() - startTime > this.duration;                    	
                     }
                 }
             } catch (InterruptedException e) {
