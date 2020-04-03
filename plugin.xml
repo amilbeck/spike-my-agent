@@ -5,7 +5,7 @@
          but it is recommended to us a URL -->
     <Name>http://www.jitterbit.com/plugins/pipeline/user/example</Name>
     <!-- Version of this pipeline plugin -->
-    <Version>0.9.3-beta1</Version>
+    <Version>1.0</Version>
     <!-- The name to use when the plugin is displayed in the UI
          Should be different from the unique name.-->
     <DisplayName>SpikeMyAgentPlugin</DisplayName>
@@ -21,7 +21,7 @@
     <!-- Command line used to execute the plugin. Since this plugin is implemented 
          using the Java SDK, it is executed by invoking Java. You need to use version
          5 or higher of Java to use the Java SDK. -->
-    <Command>C:\WINDOWS\SYSTEM32\java.exe</Command>
+    <Command>java</Command>
     <!-- The arguments to pass to the executable. Since this plugin is packaged as an
          executable JAR file, you need to pass -jar and the path to the JAR file.
          $(plugin.directory) expands to the directory where the plugin is installed. -->

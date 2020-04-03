@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Class-Path: commons-lang-2.0.jar jitterbit-plugin-sdk.jar jitterbit-xml-utils.jar
-Main-Class: org.jitterbit.plugin.sdk.pipeline.examples.ExamplePlugin
+Class-Path: lib/commons-lang-2.0.jar lib/jitterbit-plugin-sdk.jar lib/jitterbit-xml-utils.jar
+Main-Class: org.jitterbit.plugin.sdk.pipeline.examples.SpikeMyAgentPlugin
 

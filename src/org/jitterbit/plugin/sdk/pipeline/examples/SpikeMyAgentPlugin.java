@@ -4,12 +4,6 @@
  */
 package org.jitterbit.plugin.sdk.pipeline.examples;
 
-import org.jitterbit.plugin.sdk.DataElement;
-import org.jitterbit.plugin.sdk.DataElementFactory;
-import org.jitterbit.plugin.sdk.DataElements;
-import org.jitterbit.plugin.sdk.DataType;
-import org.jitterbit.plugin.sdk.InputFile;
-import org.jitterbit.plugin.sdk.InputFiles;
 import org.jitterbit.plugin.sdk.pipeline.PipelinePlugin;
 import org.jitterbit.plugin.sdk.pipeline.PipelinePluginContext;
 import org.jitterbit.plugin.sdk.pipeline.PipelinePluginInput;

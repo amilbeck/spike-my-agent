@@ -1,10 +1,10 @@
-<project basedir="." default="build-example" name="Java Plugin SDK Example - Plugin Shell">
+<project basedir="." default="build-plugin" name="SpikeMyAgentPlugin">
 
-	<target name="build-example">
+	<target name="build-plugin">
 		<property name="build.dir" value="_build" />
 		<property name="plugin.dir" value="_plugin" />
 		<property name="plugin.jar" value="spikemyagentplugin.jar" />
-		<property name="lib.dir" value="lib/" />
+		<property name="lib.dir" value="./lib/" />
 
 		<delete dir="${build.dir}" />
 		<delete dir="${plugin.dir}}" />
