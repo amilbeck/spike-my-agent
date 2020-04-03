@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<JitterbitPlugin SpecVersion="1.0">
+	<PipelinePluginInput SpecVersion="1.0">
+		<OperatingSystem Name="windows" Version="unknown" />
+		<JitterbitServer Version="1.2.0.125" Home="C:\Program Files\Jitterbit Integration Server\" />
+		<Operation Name="Example" Guid="31eb7b4c-27b2-4d55-afc3-2d2cea8cb224" Id="1" />
+		<PluginHome>C:/Program Files/Jitterbit Integration Server/Plugins/Pipeline/User/ExamplePlugin/</PluginHome>
+		<PipelinePosition Relative="Pre">Source</PipelinePosition>
+    <DataElements>
+      <DataElement Name="de_file" Type="string">data_elements.txt</DataElement>
+    </DataElements>
+
+    <Files>
+      <File Name="C:\WINDOWS\Temp\jitterbit\op3_278c45dc4-1985-43d3-bdfd-b0b9e7066585/po1.xml" />
+      <File Name="C:\WINDOWS\Temp\jitterbit\op3_278c45dc4-1985-43d3-bdfd-b0b9e7066585/po2.xml" />
+    </Files>
+
+  </PipelinePluginInput>
+</JitterbitPlugin>
